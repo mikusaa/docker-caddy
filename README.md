@@ -7,23 +7,28 @@ An out-of-the-box template for running Caddy with Docker.
 ## Included Modules
 
 - caddy-dns/cloudflare
-- caddy-dns/dnspod
 - caddy-dns/alidns
+- caddy-dns/tencentcloud
+- mholt/caddy-dynamicdns
+- caddyserver/replace-response
+- caddyserver/transform-encoder
+- caddyserver/cache-handler
 
 ## Configuration
 
 ### Clone This Repository
 
 ```bash
-git clone https://github.com/Xm798/docker-caddy.git
+git clone https://github.com/mikusaa/docker-caddy.git
 ```
 
 ### Modify the Compose File
 
-1. Users in mainland China can use `registry.cn-shanghai.aliyuncs.com/xm798/caddy:latest` instead of `xm798/caddy:latest` to avoid image pull failures due to network issues.
-2. Use `user: 1000:1000` to configure the user and group ID (1000:1000 should be set to the desired user and group ID) to avoid security risks associated with running as the root user.
-3. Modify `ports` if not using the standard ports.
-4. If you do not want to use a bridge network, you can directly use `network_mode: host`.
+1. Images are published as `mikusa/caddy` on Docker Hub and `ghcr.io/mikusaa/caddy` on GHCR. Each Caddy release is tagged with its version, such as `2.11.4`, and `latest` points to the newest published release.
+2. The image includes `tzdata`; set `TZ` to the desired IANA time zone, such as `Asia/Shanghai`.
+3. Use `user: 1000:1000` to configure the user and group ID (1000:1000 should be set to the desired user and group ID) to avoid security risks associated with running as the root user.
+4. Modify `ports` if not using the standard ports.
+5. If you do not want to use a bridge network, you can directly use `network_mode: host`.
 
 ### Configure Automatic DNS Challenge
 

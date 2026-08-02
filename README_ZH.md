@@ -5,23 +5,28 @@
 ## 包含模块
 
 - caddy-dns/cloudflare
-- caddy-dns/dnspod
 - caddy-dns/alidns
+- caddy-dns/tencentcloud
+- mholt/caddy-dynamicdns
+- caddyserver/replace-response
+- caddyserver/transform-encoder
+- caddyserver/cache-handler
 
 ## 配置
 
 ### 克隆本仓库
 
 ```bash
-git clone https://github.com/Xm798/docker-caddy.git
+git clone https://github.com/mikusaa/docker-caddy.git
 ```
 
 ### 修改 compose file
 
-1. 中国大陆用户可以使用 `registry.cn-shanghai.aliyuncs.com/xm798/caddy:latest` 代替 `xm798/caddy:latest`，避免网络原因无法拉取镜像。
-2. 使用 `user: 1000:1000` 配置用户和用户组（1000:1000 需要配置为想要使用的用户和用户组 id），避免使用 root 用户运行导致的安全风险。
-3. 如果不使用标准端口，自行修改 `ports`
-4. 如果不想使用网桥，可以直接使用 `network_mode: host`
+1. 镜像同时发布到 Docker Hub 的 `mikusa/caddy` 和 GHCR 的 `ghcr.io/mikusaa/caddy`。每个 Caddy 正式版本都会生成对应标签，例如 `2.11.4`，`latest` 指向最新发布版本。
+2. 镜像已包含 `tzdata`，可通过 `TZ` 设置所需的 IANA 时区，例如 `Asia/Shanghai`。
+3. 使用 `user: 1000:1000` 配置用户和用户组（1000:1000 需要配置为想要使用的用户和用户组 id），避免使用 root 用户运行导致的安全风险。
+4. 如果不使用标准端口，自行修改 `ports`。
+5. 如果不想使用网桥，可以直接使用 `network_mode: host`。
 
 ### 配置自动 DNS 质询
 
