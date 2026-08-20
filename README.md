@@ -13,6 +13,7 @@ An out-of-the-box template for running Caddy with Docker.
 - caddyserver/replace-response
 - caddyserver/transform-encoder
 - caddyserver/cache-handler
+- mholt/caddy-ratelimit
 
 ## Configuration
 

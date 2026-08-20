@@ -9,7 +9,8 @@ RUN xcaddy build \
     --with github.com/mholt/caddy-dynamicdns \
     --with github.com/caddyserver/replace-response \
     --with github.com/caddyserver/transform-encoder \
-    --with github.com/caddyserver/cache-handler
+    --with github.com/caddyserver/cache-handler \
+    --with github.com/mholt/caddy-ratelimit
 
 FROM caddy:${CADDY_VERSION}
 

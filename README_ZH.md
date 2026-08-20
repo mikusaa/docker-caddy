@@ -11,6 +11,7 @@
 - caddyserver/replace-response
 - caddyserver/transform-encoder
 - caddyserver/cache-handler
+- mholt/caddy-ratelimit
 
 ## 配置
 
